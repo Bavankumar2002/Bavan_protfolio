@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BK .</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">BavanKumar Baskar</span></h1>
+                <p>I build beautiful, interactive, and responsive web experiences.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="assets/BavanKumar_Resume.txt" download class="btn btn-outline">Download Resume</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/laptop_banner.jpeg" alt="Laptop Banner">
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <p>I am a passionate and dedicated software developer with a strong interest in Web Development, Python Programming, Data Science, and Machine Learning. I enjoy building responsive web applications, analyzing data, and developing intelligent solutions that solve real-world problems. My technical skills include HTML, CSS, JavaScript, React Native, Python, SQL, Data Analysis, and Machine Learning, and I am always eager to learn new technologies and improve my expertise.</p>
+                <br>
+                <p>I am a motivated learner with strong problem-solving abilities and a keen interest in transforming data into meaningful insights. Through academic projects and practical development experience, I have gained knowledge in software development, data visualization, predictive modeling, and application design. My goal is to contribute to innovative technology solutions while continuously growing as a software developer, data scientist, and machine learning engineer.</p>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <h2>Experience</h2>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <h3>Software Developer Intern</h3>
+                    <h4 class="highlight">Tech Solutions Inc. | Jan 2024 - Present</h4>
+                    <p>Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to design new features and improve user experience.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Data Science Intern</h3>
+                    <h4 class="highlight">Data Analytics Corp | Jun 2023 - Dec 2023</h4>
+                    <p>Analyzed large datasets to extract actionable insights. Built predictive models using Python and scikit-learn, improving forecasting accuracy by 15%.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Project Alpha</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.</p>
+                    <a href="#" class="btn-small">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Beta</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                    <a href="#" class="btn-small">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Gamma</h3>
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                    <a href="#" class="btn-small">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Delta</h3>
+                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                    <a href="#" class="btn-small">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Epsilon</h3>
+                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+                    <a href="#" class="btn-small">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Zeta</h3>
+                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.</p>
+                    <a href="#" class="btn-small">Live Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get In Touch</h2>
+            <p>Let's work together to create something amazing.</p>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
