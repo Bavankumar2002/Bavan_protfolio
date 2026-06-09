@@ -23,9 +23,9 @@ const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-        header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+        header.classList.add("scrolled");
     } else {
-        header.style.boxShadow = "none";
+        header.classList.remove("scrolled");
     }
 });
 
@@ -38,29 +38,133 @@ form.addEventListener("submit", (e) => {
     form.reset();
 });
 
-// Reveal animations on scroll
-const observerOptions = {
+// Reveal animations on scroll using CSS classes
+const revealObserverOptions = {
     root: null,
-    rootMargin: '0px',
+    rootMargin: '0px -50px -50px 0px',
     threshold: 0.1
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
+const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('revealed');
             observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, revealObserverOptions);
 
 // Select sections to animate
-const animatedElements = document.querySelectorAll('.about-container, .project-card, .contact form');
+const revealElements = document.querySelectorAll(
+    '.about-left-col, .about-right-col, .experience-item, .project-card, #contact-form'
+);
 
-animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
+revealElements.forEach(el => {
+    el.classList.add('reveal-on-scroll');
+    revealObserver.observe(el);
+});
+
+// Skill progress bars filling animation when they scroll into view
+const progressObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const fill = entry.target;
+            const targetWidth = fill.getAttribute("data-width") || "0%";
+            fill.style.width = targetWidth;
+            observer.unobserve(fill);
+        }
+    });
+}, { threshold: 0.1 });
+
+const progressFills = document.querySelectorAll(".progress-bar-fill");
+progressFills.forEach(fill => progressObserver.observe(fill));
+
+// Automatic Name Sync (watermark & initials) and Typewriter Animation
+document.addEventListener("DOMContentLoaded", () => {
+    const developerNameEl = document.getElementById("developer-name");
+    const nameWatermarkEl = document.getElementById("name-watermark");
+    const logoEl = document.querySelector(".logo");
+
+    if (developerNameEl) {
+        const syncName = () => {
+            const fullName = developerNameEl.textContent.trim();
+            const firstName = fullName.split(/\s+/)[0];
+
+            // Set watermark to uppercase first name
+            if (nameWatermarkEl) {
+                nameWatermarkEl.textContent = firstName.toUpperCase();
+            }
+
+            // Set logo to initials + dot (e.g. "BavanKumar Baskar" -> "BK.")
+            if (logoEl) {
+                const nameParts = fullName.split(/\s+/).filter(part => part.length > 0);
+                let initials = "";
+                if (nameParts.length > 0) {
+                    const firstWord = nameParts[0];
+                    const firstWordCaps = firstWord.replace(/[^A-Z]/g, "");
+                    if (firstWordCaps.length >= 2) {
+                        initials = firstWordCaps.substring(0, 2);
+                    } else if (nameParts.length >= 2) {
+                        initials = (firstWord[0] + nameParts[1][0]).toUpperCase();
+                    } else {
+                        initials = firstWord[0].toUpperCase();
+                    }
+                }
+                if (initials) {
+                    logoEl.innerHTML = `${initials}<span class="dot-accent">.</span>`;
+                }
+            }
+        };
+
+        // Run sync initially
+        syncName();
+
+        // Observe text modifications to dynamically update watermark and logo initials in real time
+        const nameObserver = new MutationObserver(syncName);
+        nameObserver.observe(developerNameEl, { textContent: true, characterData: true, childList: true, subtree: true });
+    }
+
+    // Typewriter effect logic
+    const typewriterElement = document.querySelector(".typewriter-text");
+    if (typewriterElement) {
+        const words = JSON.parse(typewriterElement.getAttribute("data-words") || "[]");
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let txt = '';
+
+        function type() {
+            if (words.length === 0) return;
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                txt = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                txt = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            typewriterElement.textContent = txt;
+
+            let typeSpeed = 100;
+            if (isDeleting) {
+                typeSpeed /= 2; // Delete faster
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before typing next word
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start typewriter
+        setTimeout(type, 1500);
+    }
 });

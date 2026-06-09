@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav>
-            <div class="logo">BK .</div>
+            <div class="logo">BK<span class="dot-accent">.</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -20,6 +22,9 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="nav-cta">
+                <a href="#contact" class="btn-nav">Hire Me &rarr;</a>
+            </div>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -30,29 +35,44 @@
 
     <main>
         <section id="home" class="hero">
+            <div class="hero-watermark" id="name-watermark">BAVAN</div>
+
             <div class="hero-content">
-                <h1>Hi, I'm <span class="highlight">BavanKumar Baskar</span></h1>
-                <p>I build beautiful, interactive, and responsive web experiences.</p>
+                <div class="availability-badge">
+                    <span class="status-dot"></span> Available for Opportunities
+                </div>
+                <h1>Hello, I'm <span class="wave">👋</span><br><span class="highlight" id="developer-name">BavanKumar
+                        Baskar</span></h1>
+                <h3 class="role-title"><span class="typewriter-text"
+                        data-words='["Java & Python Full Stack Developer", "Django & Flask Developer", "Java & Spring Boot Developer", "Data Science Enthusiast"]'>Java
+                        & Python Full Stack Developer</span></h3>
+                <p>Building clean user interfaces, practical APIs, and full-stack web applications &mdash; with
+                    expertise in Java, Python, Django, Flask &amp; React.</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="assets/BavanKumar_Resume.txt" download class="btn btn-outline">Download Resume</a>
+                    <a href="assets/BavanKumar_Resume.txt" download class="btn">View Resume</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="assets/laptop_banner.jpeg" alt="Laptop Banner">
+            <div class="hero-image-container">
+                <div class="hero-image-wrapper">
+                    <img src="assets/developer_avatar.png" alt="BavanKumar Baskar - Full Stack Developer">
+                </div>
+                <div class="floating-badge badge-python">Python</div>
+                <div class="floating-badge badge-django">Django</div>
+                <div class="floating-badge badge-react">React</div>
+                <div class="floating-badge badge-flask">Flask</div>
             </div>
         </section>
 
         <section id="about" class="about-modern">
             <div class="about-header-text">ABOUT</div>
             <h2 class="about-title">Who Am I?</h2>
-            
+
             <div class="about-grid">
-                <div class="about-left">
-                    <p>I'm a <strong>Full Stack Developer in Java and Python</strong>, with strong fundamentals in web technologies and a practical interest in building complete applications from interface to backend.</p>
-                    <p>I have worked with <strong>Django, Flask, React, Node.js</strong>, MongoDB, and MySQL while improving my skills through portfolio projects, coursework, and internship experience.</p>
-                    <p>I enjoy <strong>problem solving, UI design, and learning by building</strong>, and I'm looking for opportunities where I can grow as a developer while contributing useful work.</p>
-                    
+                <div class="about-left-col">
+                    <div class="about-image-wrapper">
+                        <img src="assets/about_illustration.png" alt="Developer Workspace">
+                    </div>
                     <div class="stats-grid">
                         <div class="stat-card">
                             <h3>5+</h3>
@@ -72,68 +92,78 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="about-right">
+
+                <div class="about-right-col">
+                    <div class="about-text-content">
+                        <p>I'm a <strong>Full Stack Developer in Java and Python</strong>, with strong fundamentals in web
+                            technologies and a practical interest in building complete applications from interface to
+                            backend.</p>
+                        <p>I have worked with <strong>Django, Flask, React, Node.js</strong>, MongoDB, and MySQL while
+                            improving my skills through portfolio projects, coursework, and internship experience.</p>
+                        <p>I enjoy <strong>problem solving, UI design, and learning by building</strong>, and I'm looking
+                            for opportunities where I can grow as a developer while contributing useful work.</p>
+                    </div>
+
                     <div class="skills-card">
                         <div class="skills-header">CORE PROFICIENCIES</div>
-                        
+
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span>HTML / CSS / JavaScript</span>
                                 <span>85%</span>
                             </div>
                             <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: 85%;"></div>
+                                <div class="progress-bar-fill" style="width: 0%;" data-width="85%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span>Python / Django / Flask</span>
                                 <span>75%</span>
                             </div>
                             <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: 75%;"></div>
+                                <div class="progress-bar-fill" style="width: 0%;" data-width="75%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span>MongoDB / MySQL</span>
                                 <span>65%</span>
                             </div>
                             <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: 65%;"></div>
+                                <div class="progress-bar-fill" style="width: 0%;" data-width="65%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span>Java / Spring Boot</span>
                                 <span>53%</span>
                             </div>
                             <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: 53%;"></div>
+                                <div class="progress-bar-fill" style="width: 0%;" data-width="53%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span>Figma / UI Design</span>
                                 <span>45%</span>
                             </div>
                             <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: 45%;"></div>
+                                <div class="progress-bar-fill" style="width: 0%;" data-width="45%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="skill-item">
                             <div class="skill-info">
                                 <span>React / Node.js</span>
                                 <span>35%</span>
                             </div>
                             <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: 35%;"></div>
+                                <div class="progress-bar-fill" style="width: 0%;" data-width="35%"></div>
                             </div>
                         </div>
                     </div>
@@ -147,25 +177,28 @@
                 <div class="experience-item">
                     <h3>Full stack developer</h3>
                     <h4 class="highlight"> SHREETECH INNOVATIVE IT R&D. | Feb 2026 - Present</h4>
-                    <p>
+                    <div class="experience-details">
                         <ul>
-                            <li>Developed and maintained web applications using HTML, Python, Django,Next.Js, React and Node.js.</li>
-                            <li>Collaborated with cross-functional teams to design new features and improve user experience.</li>
-                            <li>Built predictive models using Python and scikit-learn,improvinng forecasting accuracy by 15%.</li>
+                            <li>Developed and maintained web applications using HTML, Python, Django, Next.js, React and
+                                Node.js.</li>
+                            <li>Collaborated with cross-functional teams to design new features and improve user
+                                experience.</li>
+                            <li>Built predictive models using Python and scikit-learn, improving forecasting accuracy by
+                                15%.</li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
                 <div class="experience-item">
-                    <h3>Master Of Data Science Program Traning</h3>
+                    <h3>Master Of Data Science Program Training</h3>
                     <h4 class="highlight"> GUVI | Sep 2024 - Jan 2025</h4>
-                    <p>
+                    <div class="experience-details">
                         <ul>
-                            <li>Learned comprehensive knowledge of data science fundamentals including statistics, data mining, and machine learning algorithms.</li>
-                            <li></li>
-                            <li></li>
+                            <li>Learned comprehensive knowledge of data science fundamentals including statistics, data
+                                mining, and machine learning algorithms.</li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
+            </div>
         </section>
 
         <section id="projects" class="projects">
@@ -178,7 +211,8 @@
                 </div>
                 <div class="project-card">
                     <h3>Project Beta</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                    </p>
                     <a href="#" class="btn-small">Live Demo</a>
                 </div>
                 <div class="project-card">
@@ -222,4 +256,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
