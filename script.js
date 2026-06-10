@@ -29,14 +29,15 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// Simple form submission (prevent default for demo)
+// Simple form submission (prevent default for demo, if form exists)
 const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Thanks for your message! This is a demo so it wasn't actually sent.");
-    form.reset();
-});
+if (form) {
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thanks for your message! This is a demo so it wasn't actually sent.");
+        form.reset();
+    });
+}
 
 // Reveal animations on scroll using CSS classes
 const revealObserverOptions = {
@@ -56,7 +57,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 // Select sections to animate
 const revealElements = document.querySelectorAll(
-    '.about-left-col, .about-right-col, .experience-item, .project-card, #contact-form'
+    '.about-left-col, .about-right-col, .experience-item, .project-card, .contact-card'
 );
 
 revealElements.forEach(el => {
