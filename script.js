@@ -57,7 +57,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 // Select sections to animate
 const revealElements = document.querySelectorAll(
-    '.about-left-col, .about-right-col, .experience-item, .project-card, .contact-card'
+    '.about-left-col, .about-right-col, .timeline-item, .project-card, .contact-card'
 );
 
 revealElements.forEach(el => {

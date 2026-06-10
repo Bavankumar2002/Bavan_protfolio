@@ -505,44 +505,176 @@ section {
     }
 }
 
-/* Experience */
-.experience-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+/* Experience & Education Timeline */
+.experience {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.experience-item {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+.experience-subtitle {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.experience-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    text-align: left;
+    margin-bottom: 4rem;
+    background: none;
+    -webkit-text-fill-color: initial;
+    -webkit-background-clip: initial;
+}
+
+.timeline-container {
+    position: relative;
+    padding-left: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Vertical line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(16, 185, 129, 0.2);
+}
+
+.timeline-item {
+    display: flex;
+    position: relative;
+    margin-bottom: 3.5rem;
+    gap: 1.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot-container {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+    flex-shrink: 0;
+}
+
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid var(--primary-color);
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.timeline-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.08em;
+    text-align: left;
+}
+
+.timeline-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(16, 185, 129, 0.12);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.01);
+    text-align: left;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.4s ease;
 }
 
-.experience-item:hover {
-    transform: translateY(-6px) scale(1.02);
+.timeline-card:hover {
+    transform: translateY(-5px) scale(1.005);
     border-color: var(--secondary-color);
-    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 20px 40px rgba(2, 132, 199, 0.08);
 }
 
-.experience-item h3 {
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.25);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 6px rgba(2, 132, 199, 0.15);
+}
+
+.timeline-role {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
 }
 
-.experience-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+.timeline-company {
+    font-size: 1rem;
     font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-.experience-item p {
-    color: #475569;
+.timeline-description {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .experience-title {
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+    }
+    
+    .timeline-container {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-container::before {
+        left: 9px;
+    }
+    
+    .timeline-dot-container {
+        width: 20px;
+    }
+    
+    .timeline-dot {
+        width: 14px;
+        height: 14px;
+        border-width: 3px;
+    }
+    
+    .timeline-card {
+        padding: 1.8rem;
+        border-radius: 20px;
+    }
+    
+    .timeline-role {
+        font-size: 1.3rem;
+    }
 }
 
 /* Projects */
